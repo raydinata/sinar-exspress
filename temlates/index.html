@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinar Express - Pengiriman Terpercaya</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* VARIABEL WARNA DARK MODE */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e2f;
+            --bg-card-hover: #272740;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0b0;
+            --accent: #00bcd4; /* Biru Cyan elegan */
+            --accent-hover: #00e5ff;
+            --border-color: #2a2a3c;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header { 
+            background-color: rgba(18, 18, 18, 0.9); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+        header h1 i { color: var(--accent); margin-right: 8px; }
+        nav { display: flex; gap: 20px; }
+        nav a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* HERO SECTION */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 100px 20px; 
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.95)), url('https://source.unsplash.com/1600x900/?logistics,truck') center/cover;
+            position: relative;
+        }
+        .hero h2 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
+        .hero p { font-size: 1.1rem; margin-bottom: 40px; color: var(--text-muted); max-width: 600px; }
+        
+        /* Fitur Lacak Resi di Hero */
+        .tracking-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            gap: 10px;
+        }
+        .tracking-box input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-dark);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .tracking-box input:focus { border-color: var(--accent); }
+        .btn-track { 
+            background-color: var(--accent); 
+            color: var(--bg-dark); 
+            padding: 15px 25px; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            font-weight: 700; 
+            transition: background 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-track:hover { background-color: var(--accent-hover); }
+
+        /* SECTION UMUM */
+        section { padding: 80px 5%; }
+        .section-title { 
+            text-align: center; 
+            font-size: 2.2rem; 
+            margin-bottom: 50px; 
+            position: relative;
+            color: white;
+        }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* STATISTIK */
+        .stats { 
+            background: var(--bg-card); 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+            padding: 60px 5%;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stat-item { text-align: center; min-width: 150px; }
+        .stat-item i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
+        .stat-item h3 { font-size: 2.5rem; color: white; margin-bottom: 5px; }
+        .stat-item p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* LAYANAN CARDS */
+        .services-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .service-card { 
+            flex: 1; 
+            min-width: 280px; 
+            max-width: 350px;
+            background: var(--bg-card); 
+            padding: 35px; 
+            border-radius: 12px; 
+            text-align: center; 
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--accent); 
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.1);
+        }
+        .service-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        .service-card h3 { color: white; margin-bottom: 15px; font-size: 1.3rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* CARA KERJA */
+        .how-it-works { background: var(--bg-card); }
+        .steps-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .step { text-align: center; flex: 1; min-width: 200px; max-width: 220px; position: relative; }
+        .step-circle { 
+            width: 60px; height: 60px; background: var(--bg-dark); border: 2px solid var(--accent); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.5rem; color: var(--accent); margin: 0 auto 15px;
+        }
+        .step h4 { color: white; margin-bottom: 8px; }
+        .step p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* TENTANG */
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        /* KONTAK */
+        .contact { background: var(--bg-dark); border-top: 1px solid var(--border-color); }
+        .contact-box { max-width: 600px; margin: 0 auto; text-align: center; background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border-color);}
+        .contact-item { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 15px;}
+        .contact-item i { color: var(--accent); font-size: 1.3rem; width: 20px; text-align: center;}
+        .chat-promo { margin-top: 30px; padding: 20px; background: rgba(0, 188, 212, 0.1); border-radius: 8px; border: 1px dashed var(--accent); }
+        .chat-promo p { color: var(--accent); font-weight: 600; }
+
+        /* FOOTER */
+        footer { background: #0a0a12; padding: 30px 5%; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); }
+
+        /* CHATBOT CSS */
+        .chat-icon { 
+            position: fixed; bottom: 30px; right: 30px; background-color: var(--accent); 
+            color: var(--bg-dark); width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; font-size: 24px; 
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4); z-index: 99;
+            transition: transform 0.3s;
+        }
+        .chat-icon:hover { transform: scale(1.1); }
+        
+        .chat-box { 
+            position: fixed; bottom: 100px; right: 30px; width: 370px; height: 500px; 
+            background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; flex-direction: column; 
+            overflow: hidden; z-index: 99; 
+        }
+        .chat-header { 
+            background-color: var(--bg-dark); color: var(--accent); padding: 20px; 
+            font-weight: 700; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .chat-body { 
+            flex: 1; padding: 20px; overflow-y: auto; background: var(--bg-dark); 
+            display: flex; flex-direction: column; gap: 15px; 
+        }
+        .msg { max-width: 80%; padding: 12px 16px; border-radius: 12px; font-size: 0.9rem; line-height: 1.5; white-space: pre-line; position: relative; }
+        .msg.bot { align-self: flex-start; background: var(--bg-card); color: var(--text-main); border-bottom-left-radius: 2px; }
+        .msg.user { align-self: flex-end; background: var(--accent); color: var(--bg-dark); font-weight: 500; border-bottom-right-radius: 2px; }
+        
+        .chat-input { display: flex; border-top: 1px solid var(--border-color); background: var(--bg-card); }
+        .chat-input input { 
+            flex: 1; padding: 18px; border: none; outline: none; background: transparent; 
+            color: white; font-family: 'Poppins', sans-serif;
+        }
+        .chat-input input::placeholder { color: var(--text-muted); }
+        .chat-input button { background: var(--accent); color: var(--bg-dark); border: none; padding: 0 20px; cursor: pointer; font-weight: 700; font-size: 1.2rem; transition: background 0.3s; }
+        .chat-input button:hover { background: var(--accent-hover); }
+        .close-btn { cursor: pointer; color: var(--text-muted); transition: color 0.3s; font-size: 1.2rem; }
+        .close-btn:hover { color: white; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2.2rem; }
+            .tracking-box { flex-direction: column; }
+            .chat-box { width: calc(100% - 20px); right: 10px; bottom: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1><i class="fas fa-shipping-fast"></i> SinarExpress</h1>
+        <nav>
+            <a href="#layanan">Layanan</a>
+            <a href="#cara-kerja">Alur</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Pengiriman Cepat & <span style="color: var(--accent);">Terpercaya</span></h2>
+        <p>Kirim paket ke seluruh Jawa Tengah dengan tarif terjangkau dan sistem pelacakan real-time.</p>
+        
+        <div class="tracking-box">
+            <input type="text" id="heroResi" placeholder="Masukkan nomor resi (cth: JNE12345678)" onkeypress="if(event.key==='Enter') trackFromHero()">
+            <button class="btn-track" onclick="trackFromHero()"><i class="fas fa-search"></i> Lacak</button>
+        </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <div class="stats">
+        <div class="stat-item">
+            <i class="fas fa-box"></i>
+            <h3>10K+</h3>
+            <p>Paket Terkirim</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-city"></i>
+            <h3>35+</h3>
+            <p>Kota Jateng</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <h3>50K+</h3>
+            <p>Pelanggan</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-clock"></i>
+            <h3>24/7</h3>
+            <p>Support Bot</p>
+        </div>
+    </div>
+
+    <!-- LAYANAN -->
+    <section id="layanan">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services-container">
+            
+            <div class="service-card">
+                <i class="fas fa-truck"></i>
+                <h3>Reguler (Jawa Tengah)</h3>
+                <p>Layanan pengiriman paket antar kota di Jawa Tengah dengan estimasi tiba 2-3 hari. Harga terjangkau dan aman.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Express (Same Day)</h3>
+                <p>Butuh paket tiba hari ini juga? Layanan Same Day kami siap mengantar paket Anda sebelum jam 5 sore.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-box-open"></i>
+                <h3>Kargo Berat</h3>
+                <p>Pengiriman barang besar dan berat dengan tarif kompetitif. Cocok untuk kebutuhan bisnis dan pindahan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARA KERJA -->
+    <section id="cara-kerja" class="how-it-works">
+        <h2 class="section-title">Alur Pengiriman</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-circle"><i class="fas fa-hand-holding"></i></div>
+                <h4>Pickup / Drop Off</h4>
+                <p>Kurir ambil paket atau Anda datang ke agen terdekat.</p>
+            </div>
+            <div class="step">
+                <div class="step-circle"><i class="fas fa-warehouse"></i></div>
+                <h4>Sorting Center</h4>
+                <p>Paket disortir berdasarkan kota tujuan di hub utama.</p>
+            </div>
+            <div class="step">
+                <div class="step-circle"><i class="fas fa-shipping-fast"></i></div>
+                <h4>In Transit</h4>
+                <p>Paket dalam perjalanan menuju kota tujuan via darat.</p>
+            </div>
+            <div class="step">
+                <div class="step-circle"><i class="fas fa-check-circle"></i></div>
+                <h4>Delivered</h4>
+                <p>Paket sampai di tujuan dan diterima oleh penerima.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang">
+        <h2 class="section-title">Tentang Sinar Express</h2>
+        <div class="about-content">
+            <p>
+                <strong style="color: var(--accent);">Sinar Express</strong> adalah perusahaan jasa logistik yang berfokus pada kecepatan dan keamanan pengiriman di wilayah <strong>Jawa Tengah</strong>. 
+                Didirikan dengan semangat untuk menghubungkan pelaku usaha dan masyarakat di kota-kota besar seperti Semarang, Solo, Magelang, Pekalongan, dan sekitarnya. 
+            </p>
+            <p>
+                Dengan integrasi sistem pelacakan berbasis AI melalui asisten virtual kami dan kurir terpercaya, kami memastikan setiap paket Anda sampai tepat waktu dengan bukti penerimaan yang valid.
+            </p>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-box">
+            <div class="contact-item"><i class="fas fa-phone-alt"></i> Call Center: 0813-4890-0013 (Gratis)</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> Email: cs@sinarexpress.id</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Kantor Pusat: Jl. Plewan No. 1, Semarang</div>
+            
+            <div class="chat-promo">
+                <p><i class="fas fa-robot"></i> Cek resi & ongkir lebih cepat menggunakan Asisten Chatbot kami!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2023 Sinar Express. All Rights Reserved. Jasa Pengiriman Terpercaya Jawa Tengah.</p>
+    </footer>
+
+    <!-- CHATBOT UI -->
+    <div class="chat-icon" onclick="toggleChat(true)"><i class="fas fa-comment-dots"></i></div>
+    
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span><i class="fas fa-robot"></i> Sinar Bot</span>
+            <span class="close-btn" onclick="toggleChat(false)"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="msg bot">Halo! 👋 Saya Sinar Bot. Ada yang perlu dibantu? Ketik "Halo" untuk memulai.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        let currentState = "GREETING"; 
+        const pythonApiUrl = "/chat";
+
+        function toggleChat(show) {
+            const box = document.getElementById('chatBox');
+            box.style.display = show ? 'flex' : 'none';
+            if(show) {
+                setTimeout(() => { document.getElementById('userInput').focus(); }, 100);
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatBody = document.getElementById('chatBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('msg', sender);
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight; 
+        }
+
+        // Fitur Lacak dari Hero Section
+        function trackFromHero() {
+            const resiInput = document.getElementById('heroResi');
+            const resi = resiInput.value.trim();
+            
+            if (!resi) {
+                alert("Silakan masukkan nomor resi terlebih dahulu!");
+                return;
+            }
+
+            // Hapus pesan pembuka default agar chatbot langsung fokus ke lacak resi
+            const chatBody = document.getElementById('chatBody');
+            if(chatBody.children.length === 1 && chatBody.innerText.includes('Halo')) {
+                chatBody.innerHTML = '';
+            }
+
+            // Pindahkan resi ke input chat, buka chat, dan kirim
+            document.getElementById('userInput').value = resi;
+            toggleChat(true);
+            
+            // Delay sedikit agar chatbox animasinya terbuka dulu sebelum pesan muncul
+            setTimeout(() => {
+                sendMessage();
+                resiInput.value = ''; // Kosongkan input hero
+            }, 200);
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById('userInput');
+            const message = inputField.value.trim();
+            if (!message) return;
+
+            appendMessage('user', message);
+            inputField.value = '';
+
+            // Tampilkan indikator mengetik
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('msg', 'bot');
+            typingIndicator.setAttribute('id', 'typing');
+            typingIndicator.textContent = 'Sedang mengetik...';
+            document.getElementById('chatBody').appendChild(typingIndicator);
+            document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
+
+            try {
+                const response = await fetch(pythonApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message, state: currentState })
+                });
+                
+                const data = await response.json();
+                
+                // Hapus indikator mengetik
+                const typingElem = document.getElementById('typing');
+                if(typingElem) typingElem.remove();
+
+                appendMessage('bot', data.reply);
+                currentState = data.next_state;
+
+            } catch (error) {
+                const typingElem = document.getElementById('typing');
+                if(typingElem) typingElem.remove();
+                
+                appendMessage('bot', 'Maaf, server bot sedang offline. Pastikan app.py berjalan di port 5000.');
+                console.error('Error:', error);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
