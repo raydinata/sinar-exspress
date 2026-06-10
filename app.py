@@ -115,7 +115,7 @@ with st.sidebar:
     st.divider()
     
     # Tombol Reset Chat yang sangat penting untuk demo
-    if st.button("🗑️ Reset Percakapan", use_container_width=True):
+    if st.button(" Reset Percakapan", use_container_width=True):
         if "messages" in st.session_state:
             del st.session_state.messages
             del st.session_state.fsm_state
