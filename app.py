@@ -122,7 +122,7 @@ with st.sidebar:
         st.rerun()
 
     st.markdown("---")
-    st.caption("© 2024 Sinar Express. All Rights Reserved.")
+    st.caption("© 2026 Cekk Ajaa. All Rights Reserved.")
 
 
 # ================= MAIN PAGE =================
@@ -236,23 +236,23 @@ with tab_services:
     col_s1, col_s2, col_s3 = st.columns(3)
     
     with col_s1:
-        st.markdown("#### 🚛 Reguler (Jawa Tengah)")
+        st.markdown("####  Reguler (Jawa Tengah)")
         st.info("Layanan pengiriman paket antar kota di Jawa Tengah dengan estimasi tiba 2-3 hari. Harga terjangkau dan aman.")
         st.markdown("**Estimasi Tarif:** Rp 15.000 (1Kg pertama)")
         
     with col_s2:
-        st.markdown("#### ⚡ Express (Same Day)")
+        st.markdown("####  Express (Same Day)")
         st.info("Butuh paket tiba hari ini juga? Layanan Same Day kami siap mengantar paket Anda sebelum jam 5 sore.")
         st.markdown("**Estimasi Tarif:** Mulai Rp 30.000")
         
     with col_s3:
-        st.markdown("#### 📦 Kargo Berat")
+        st.markdown("####  Kargo Berat")
         st.info("Pengiriman barang besar dan berat dengan tarif kompetitif. Cocok untuk kebutuhan bisnis dan pindahan.")
         st.markdown("**Estimasi Tarif:** Hubungi CS")
 
     st.divider()
     
-    st.markdown("### 🚫 Daftar Barang Terlarang")
+    st.markdown("###  Daftar Barang Terlarang")
     st.warning("Untuk keamanan bersama, kami **TIDAK** menerima pengiriman barang-barang berikut:")
     st.markdown("""
     - Cairan mudah terbakar (Bensin, Minyak Tanah, dll)
