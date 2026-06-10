@@ -105,7 +105,7 @@ with st.sidebar:
     
     st.markdown("#### 📞 Kontak Kami")
     st.markdown("- **Call Center:** 0813-4890-0013")
-    st.markdown("- **Email:** cs@sinarexpress.id")
+    st.markdown("- **Email:** cs@CekkAjaa.id")
     st.markdown("- **Kantor Pusat:** Jl. Plewan No. 1, Semarang")
     st.divider()
     
