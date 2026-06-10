@@ -134,7 +134,7 @@ class ChatbotFSM:
                 next_state = AWAITING_COMPLAINT_DETAILS
                 
             elif intent == 'info_branch' or '4' in user_input:
-                response = "Kantor Pusat Sinar Express: Jl. Plewan No. 1, Semarang.\nJam Operasional: Senin - Sabtu (08.00 - 20.00 WIB).\n\nAda yang bisa dibantu lagi?"
+                response = "Kantor Pusat Cekk Ajaa: Jl. Plewan No. 1, Semarang.\nJam Operasional: Senin - Sabtu (08.00 - 20.00 WIB).\n\nAda yang bisa dibantu lagi?"
                 next_state = SELECT_SERVICE
                 
             elif intent == 'prohibited' or '5' in user_input:
