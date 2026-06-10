@@ -6,7 +6,7 @@ fsm_bot = ChatbotFSM()
 
 # ================= KONFIGURASI HALAMAN =================
 st.set_page_config(
-    page_title="Sinar Express - Logistik Cerdas",  
+    page_title="Cekk Ajaa - Logistik Cerdas",  
     layout="wide",
     initial_sidebar_state="expanded" # Sidebar dibuka default
 )
@@ -99,7 +99,7 @@ st.markdown("""
 
 # ================= SIDEBAR INFO =================
 with st.sidebar:
-    st.markdown("<h2 style='color: #00bcd4;'> Sinar Express</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #00bcd4;'> Cekk Ajaa</h2>", unsafe_allow_html=True)
     st.caption("Jasa Pengiriman Cepat & Terpercaya")
     st.divider()
     
@@ -159,7 +159,7 @@ with tab_home:
     st.divider()
 
     # ================= UI CHATBOT =================
-    st.markdown("### 💬 Sinar Bot - Asisten Virtual")
+    st.markdown("### 💬 Cekk Ajaa Bot - Asisten Virtual")
 
     # Inisialisasi state history chatbot
     if "messages" not in st.session_state:
