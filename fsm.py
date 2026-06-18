@@ -104,7 +104,7 @@ class ChatbotFSM:
                 next_state = SELECT_SERVICE
                 
             elif intent == 'greet' or intent == 'unknown':
-                response = "Halo! Selamat datang di Sinar Express. Silakan pilih layanan:\n1. Cek Resi\n2. Cek Tarif\n3. Pengaduan (Rusak/Hilang)\n4. Info Agen & Jam Operasional\n5. Daftar Barang Terlarang\n6. Jemput Paket (Pickup)\n(Ketik angka 1-6)"
+                response = "Halo! Selamat datang di Cekk Ajaa. Silakan pilih layanan:\n1. Cek Resi\n2. Cek Tarif\n3. Pengaduan (Rusak/Hilang)\n4. Info Agen & Jam Operasional\n5. Daftar Barang Terlarang\n6. Jemput Paket (Pickup)\n(Ketik angka 1-6)"
                 next_state = SELECT_SERVICE
             elif intent == 'track':
                 response = "Baik, silakan masukkan nomor resi Anda."
